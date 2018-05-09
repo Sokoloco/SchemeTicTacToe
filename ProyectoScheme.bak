@@ -1,0 +1,15 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-advanced-reader.ss" "lang")((modname ProyectoScheme) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
+(define (win? status col row);status is the current status of the game, and size the size of the matrix
+  (cond ((
+(define (winCol stat col row ply);Determines if there is a winning Column,ply is player
+  (cond ((
+(define (winFil stat col row);Determines if there is a winning Row
+  (cond ((
+
+(define (goto stat x y) ;goes to a certain coordinate give by x and y
+  (cond ((and(zero? x) (zero? y)) (car stat))
+        ((and (zero? y) (list? (car stat)))  (goto (car stat) (- x 1) y))
+        ((zero? y) (goto (cdr stat)(- x 1) y))
+        (else (goto (cdr stat) x (- y 1)))))
